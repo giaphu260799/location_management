@@ -11,7 +11,7 @@ export class LocationService {
         if (parts.length > 1) {
             let parentNumber = parts.join('-');
             let records = await this.locationRepository.getByNumber(parentNumber);
-            if (records.length) {
+            if (records.length === 0) {
                 throw new ForbiddenException()
             }
         }
